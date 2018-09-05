@@ -2,11 +2,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
-# @app.route('/')
-# def hello_world():
-#     return 'Hello, World!'
-
+"""
+    If the url route is even respond with Fizz,
+    if the route is odd respond with Buzz.
+"""
 @app.route('/fizzbuzz/<int:value_id>')
 def fizz_buzz(value_id):
     if value_id % 2 == 0:
@@ -14,6 +13,7 @@ def fizz_buzz(value_id):
     else:
         return 'Buzz', 200
 
+# Any string route respond with error
 @app.route('/fizzbuzz/<name>')
 def no_fizz_buzz(name):
     return 'Error', 400
